@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="my-5 container mx-auto my-4">
+    <div class="d-flex flex-lg-row flex-column gap-3 justify-content-center align-items-center">
+        <div class="col w-auto me-lg-3">
+            <img class="img-fluid" src="{% static 'images/banner_car.gif' %}" alt="">
+        </div>
+        <div class="col w-auto" style="max-width: 700px;">
+            <h1 class="text-center text-success">Welcome to Super Cars!</h1>
+            <p class="text-center">Welcome to our luxury haven for automotive enthusiasts! At our Super Car Shop, we curate an unparalleled collection of high-performance marvels that redefine the essence of driving. Immerse yourself in a world where speed meets elegance, and precision intertwines with style. Each car in our webpage is a testament to engineering excellence and automotive artistry. </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
