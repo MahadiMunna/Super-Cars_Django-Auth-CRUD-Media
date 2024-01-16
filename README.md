@@ -14,4 +14,5 @@ When an authenticated user clicks the buy now button this item will be purchased
 4. Order History:
 In the profile page users can see the bought cars lists.
 
-# For UI visit: https://drive.google.com/file/d/1oXkTNwzzJ9c3muOA9XJfWndu--VAbUEx/view?usp=sharing
+# For UI visit: 
+https://drive.google.com/file/d/1oXkTNwzzJ9c3muOA9XJfWndu--VAbUEx/view?usp=sharing
