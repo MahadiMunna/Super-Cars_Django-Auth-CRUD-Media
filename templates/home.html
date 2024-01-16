@@ -12,4 +12,32 @@
         </div>
     </div>
 </div>
+<div>
+    <h4 class="text-center my-3">Brands</h4>
+    <div class="d-flex justify-content-center gap-2">
+        {% for brand in brands %}
+        <a class="btn btn-warning fw-bold text-decoration-none text-dark" href="{% url 'brands' brand.slug %}">{{brand.name}}</a>
+        {% endfor %}
+    </div>
+</div>
+<div>
+    <div class="conatiner mx-2">
+        <h4 class="mt-4 text-center">{{data|length}} result found</h4>
+        <div class="row justify-content-center my-5 gap-4">
+            {% for car in data %}
+            <div class="col-lg-3 col-md-6 col-8" >
+              <div class="card">
+                <div class="card-body">
+                  <img  src="{{car.image.url}}" class="card-img-top" alt="">
+                  <h5 class="card-title"><a class="text-decoration-none text-dark" href="">{{car.name}}</a></h5>
+                  <p class="card-text">Price: {{car.price}}</p>
+                  <p class="card-text fw-bold">Brand: {{car.brand}}</p>
+                  <a class="btn btn-warning" href="">View Details</a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+    </div>
+</div>
 {% endblock %}
