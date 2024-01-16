@@ -6,6 +6,7 @@ from django.views.generic import View
 from django.contrib.auth import logout
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from cars.models import Owner
 
 
 # Create your views here.
@@ -23,12 +24,12 @@ def register(request):
 class UserLoginView(LoginView):
     template_name = 'form.html'
     def get_success_url(self):
-        return reverse_lazy('home')
+        return reverse_lazy('profile')
     def form_valid(self, form):
         messages.success(self.request, 'Logged In Successfully')
         return super().form_valid(form)
     def form_invalid(self, form):
-        messages.success(self.request, 'User Information is incorrect')
+        messages.warning(self.request, 'User Information is incorrect')
         return super().form_invalid(form)
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -42,7 +43,9 @@ class UserLogoutView(View):
 
 @login_required
 def profile(request):
-    return render(request, 'profile.html')
+    owner = Owner.objects.get(owner=request.user)
+    data = owner.purchased_cars.all()
+    return render(request, 'profile.html', {'data': data})
 
 @login_required
 def editProfile(request):
